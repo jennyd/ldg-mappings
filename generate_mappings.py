@@ -5,6 +5,7 @@ import os
 
 
 source_data_dir = 'source_data'
+output_data_dir = 'output_data'
 
 # Find all the LGSLs used in the LDG service CSV and put them in a dict, where
 # we will collate the URLs they should redirect to.
@@ -72,7 +73,7 @@ ldg_lgsls_for_csv = sorted([
 	for lgsl, mapping in lgsls_to_mappings.items()
 ])
 lgsl_csv = 'ldg_lgsls_with_mappings.csv'
-with open(lgsl_csv, 'w') as f:
+with open(os.path.join(output_data_dir, lgsl_csv), 'w') as f:
     writer = csv.DictWriter(f, ['LDG LGSL', 'mapping'])
     writer.writeheader()
     for row in ldg_lgsls_for_csv:
@@ -93,7 +94,7 @@ mappings_for_csv = [
 	for path in paths_for_lgsl_mappings
 ]
 mappings_csv = 'mappings.csv'
-with open(mappings_csv, 'w') as f:
+with open(os.path.join(output_data_dir, mappings_csv), 'w') as f:
     writer = csv.DictWriter(f, ['path', 'mapping'])
     writer.writeheader()
     for row in mappings_for_csv:
