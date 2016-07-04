@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 import csv
+import os
 
+
+source_data_dir = 'source_data'
 
 # Find all the LGSLs used in the LDG service CSV and put them in a dict, where
 # we will collate the URLs they should redirect to.
-with open('local_authority_service_details-20160628.csv') as f:
+with open(os.path.join(source_data_dir, 'local_authority_service_details-20160628.csv')) as f:
     reader = csv.DictReader(f)
     all_ldg_lgsls = [int(row['LGSL']) for row in reader]
 
@@ -14,7 +17,7 @@ lgsls_to_mappings = {lgsl: None for lgsl in ldg_lgsls}
 
 
 # Add the redirects for orange transactions into the LGSL mapping dict.
-with open('orange-transaction-redirects.csv') as f:
+with open(os.path.join(source_data_dir, 'orange-transaction-redirects.csv')) as f:
 	reader = csv.DictReader(f)
 	orange_transactions_by_lgsl = {}
 	for row in reader:
@@ -41,7 +44,7 @@ for lgsl, row in orange_transactions_by_lgsl.items():
 
 
 # Add the redirects for transactions on GOV.UK into the LGSL mapping dict.
-with open('govuk-local-transactions.csv') as f:
+with open(os.path.join(source_data_dir, 'govuk-local-transactions.csv')) as f:
 	reader = csv.DictReader(f)
 	govuk_local_transactions_by_lgsl = {}
 	for row in reader:
