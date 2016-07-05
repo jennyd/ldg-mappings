@@ -4,6 +4,9 @@
 /data/local_authority_contact_details.csv
 /data/local_authority_service_details.csv
 /data/local_register_offices.csv
+http://local.direct.gov.uk/Data/regional_passport_offices.csv
+http://local.direct.gov.uk/Data/passport_interview_offices.csv
+http://local.direct.gov.uk/Data/employment_tribunals.csv
 /data/wedding_venues.csv
 /ldgredirect
 /ldgredirect//index.jsp?lgsl=432
@@ -366,6 +369,7 @@
 /ldgredirect/mapaction.do?ref=weddingvenues
 /ldgredirect/mapajax.do
 /ldgredirect/mapdetailaction.do
+/ldgredirect/mapdetailaction.do?datatype=employmenttribunal
 /ldgredirect/mapdetailaction.do?datatype=grolight
 /ldgredirect/mapdetailaction.do?datatype=passportchecksendcentres
 /ldgredirect/mapdetailaction.do?datatype=passportinterviewoffices
